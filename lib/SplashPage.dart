@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:math';
 
 import 'package:flutter/cupertino.dart';
@@ -43,6 +44,22 @@ class SplashState extends State<SplashPage> {
         ),
       ),
     );
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    Timer(Duration(seconds: 2), () {
+      _pushHome();
+    });
+
+//    var timer = Timer.periodic(Duration(seconds: 2), (timer) {
+//      _pushHome();
+//    });
+//    Future.delayed(Duration(seconds: 2), () {
+//      _pushHome();
+//      timer.cancel();
+//    });
   }
 
   void _pushHome() {
