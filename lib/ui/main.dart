@@ -1,7 +1,7 @@
 import 'package:english_words/english_words.dart';
 import 'package:flutter/material.dart';
 import 'package:oktoast/oktoast.dart';
-import 'package:wanandroid/SplashPage.dart';
+import 'package:wanandroid/ui/SplashPage.dart';
 
 void main() => runApp(MyApp());
 
