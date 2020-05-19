@@ -2,10 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:oktoast/oktoast.dart';
-import 'package:wanandroid/test.dart';
 import 'package:wanandroid/ui/LoginPage.dart';
-import 'package:wanandroid/utils/LogUtils.dart';
 
 class SplashPage extends StatefulWidget {
   @override
