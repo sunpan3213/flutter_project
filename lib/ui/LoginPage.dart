@@ -1,6 +1,9 @@
+import 'dart:ui';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:oktoast/oktoast.dart';
+import 'package:wanandroid/ui/RegistePage.dart';
 import 'package:wanandroid/utils/LogUtils.dart';
 import 'package:wanandroid/utils/Strings.dart';
 
@@ -100,6 +103,45 @@ class _LoginState extends State<LoginPage> {
                   ),
                   textInputAction: TextInputAction.done,
                   keyboardType: TextInputType.number,
+                ),
+              ),
+              Container(
+                width: double.infinity,
+                height: 50,
+                margin: EdgeInsets.fromLTRB(30, 50, 30, 0),
+                child: MaterialButton(
+                  onPressed: () {
+                    showToast("login");
+                  },
+                  child: Text(
+                    Strings.loginButtonText,
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 18,
+                    ),
+                  ),
+                  color: Colors.blue,
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
+                      side: BorderSide(
+                        color: Colors.blue,
+                      )),
+                ),
+              ),
+              Container(
+                width: double.infinity,
+                height: 50,
+                margin: EdgeInsets.fromLTRB(0, 20, 0, 0),
+                child: FlatButton(
+                  child: Text(Strings.registe),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) {
+                        return RegistePage();
+                      }),
+                    );
+                  },
                 ),
               ),
             ],

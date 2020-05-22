@@ -61,8 +61,7 @@ class _SplashState extends State<SplashPage> {
   }
 
   void _pushHome() {
-    Navigator.pushAndRemoveUntil(context,
-        MaterialPageRoute(builder: (BuildContext context) {
+    Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) {
       return LoginPage();
     }), (route) => route == null);
   }
