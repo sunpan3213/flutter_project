@@ -61,9 +61,6 @@ class _LoginState extends State<LoginPage> {
         ),
         keyboardType: TextInputType.emailAddress,
         textInputAction: TextInputAction.next,
-        onChanged: (value) {
-          showToast(value);
-        },
         onSubmitted: (value) {
           _accountFocusNode.unfocus();
           FocusScope.of(context).requestFocus(_pwdFocusNode);
