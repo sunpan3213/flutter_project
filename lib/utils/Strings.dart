@@ -7,4 +7,5 @@ class Strings{
   static String registePwdHint = "注册密码";
   static String registeRePwdHint = "注册重复密码";
   static String registeButtonText = "注册";
+  static String registeSuccess = "注册成功";
 }

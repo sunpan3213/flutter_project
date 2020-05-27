@@ -1,6 +1,9 @@
-import 'package:flutter/cupertino.dart';
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:oktoast/oktoast.dart';
+import 'package:wanandroid/model/registe_entity.dart';
+import 'package:wanandroid/net/NetUtils.dart';
 import 'package:wanandroid/utils/Strings.dart';
 
 class RegistePage extends StatefulWidget {
@@ -9,7 +12,6 @@ class RegistePage extends StatefulWidget {
 }
 
 class _RegisteState extends State<RegistePage> {
-
   FocusNode _accountFocusNode, _pwdFocusNode, _rePwdFocusNode;
   TextEditingController _accountController, _pwdController, _rePwdController;
 
@@ -142,7 +144,7 @@ class _RegisteState extends State<RegistePage> {
       margin: EdgeInsets.fromLTRB(30, 50, 30, 0),
       child: MaterialButton(
         onPressed: () {
-          showToast("regist");
+          _registe();
         },
         child: Text(
           Strings.registeButtonText,
@@ -181,5 +183,14 @@ class _RegisteState extends State<RegistePage> {
         ),
       ),
     );
+  }
+
+  void _registe() {
+    NetUtils.instance.registe(_accountController.text, _pwdController.text, (RegisteData registeEntity) {
+      showToast(Strings.registeSuccess);
+      Navigator.pop(context);
+    }, (errorMsg) {
+      showToast(errorMsg);
+    });
   }
 }
