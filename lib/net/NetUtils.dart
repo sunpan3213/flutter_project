@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:dio/dio.dart';
 import 'package:wanandroid/generated/json/base/json_convert_content.dart';
+import 'package:wanandroid/model/login_entity_entity.dart';
 import 'package:wanandroid/model/registe_entity.dart';
 
 class NetUtils {
@@ -28,7 +29,8 @@ class NetUtils {
     _dio.interceptors.add(LogInterceptor(responseBody: true));
   }
 
-  void _post<T>(String url, Map<String, dynamic> params, Function(T) success, Function error) async {
+  void _post<T>(
+      String url, Map<String, dynamic> params, Function(T) success, Function error) async {
     try {
       var response = await _dio.post(url, queryParameters: params);
       if (response.statusCode == HttpStatus.ok) {
@@ -49,8 +51,13 @@ class NetUtils {
     }
   }
 
-  void registe(String account, String pwd, Function(RegisteData) success, Function error) {
+  void registe(String account, String pwd, Function(RegisteEntity) success, Function error) {
     Map<String, dynamic> params = {"username": account, "password": pwd, "repassword": pwd};
     _post("/user/register", params, success, error);
+  }
+
+  void login(String account, String pwd, Function(LoginEntity) success, Function error) {
+    Map<String, dynamic> params = {"username": account, "password": pwd};
+    _post('/user/login', params, success, error);
   }
 }

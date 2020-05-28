@@ -6,6 +6,8 @@ import 'package:wanandroid/model/registe_entity.dart';
 import 'package:wanandroid/net/NetUtils.dart';
 import 'package:wanandroid/utils/Strings.dart';
 
+import 'HomePage.dart';
+
 class RegistePage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() => _RegisteState();
@@ -186,9 +188,11 @@ class _RegisteState extends State<RegistePage> {
   }
 
   void _registe() {
-    NetUtils.instance.registe(_accountController.text, _pwdController.text, (RegisteData registeEntity) {
+    NetUtils.instance.registe(_accountController.text, _pwdController.text, (registeEntity) {
       showToast(Strings.registeSuccess);
-      Navigator.pop(context);
+      Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (buildContext) {
+        return HomePage();
+      }), (route) => route == null);
     }, (errorMsg) {
       showToast(errorMsg);
     });

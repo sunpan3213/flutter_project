@@ -1,6 +1,6 @@
 import 'package:wanandroid/generated/json/base/json_convert_content.dart';
 
-class RegisteEntity with JsonConvert<RegisteEntity> {
+class LoginEntity with JsonConvert<LoginEntity> {
 	bool admin;
 	List<dynamic> chapterTops;
 	List<dynamic> collectIds;

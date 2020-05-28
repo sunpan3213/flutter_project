@@ -3,6 +3,8 @@ import 'dart:ui';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:oktoast/oktoast.dart';
+import 'package:wanandroid/net/NetUtils.dart';
+import 'package:wanandroid/ui/HomePage.dart';
 import 'package:wanandroid/ui/RegistePage.dart';
 import 'package:wanandroid/utils/Strings.dart';
 
@@ -107,7 +109,7 @@ class _LoginState extends State<LoginPage> {
       margin: EdgeInsets.fromLTRB(30, 50, 30, 0),
       child: MaterialButton(
         onPressed: () {
-          showToast("login");
+          _login();
         },
         child: Text(
           Strings.loginButtonText,
@@ -183,5 +185,16 @@ class _LoginState extends State<LoginPage> {
         resizeToAvoidBottomInset: false,
       ),
     );
+  }
+
+  void _login() {
+    NetUtils.instance.login(_accountController.text, _pwdController.text, (loginEntity) {
+      showToast(Strings.loginSuccess);
+      Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (buildContext) {
+        return HomePage();
+      }), (route) => route == null);
+    }, (msg) {
+      showToast(msg);
+    });
   }
 }

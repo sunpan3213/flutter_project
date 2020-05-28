@@ -1,6 +1,6 @@
-import 'package:wanandroid/model/registe_entity.dart';
+import 'package:wanandroid/model/login_entity_entity.dart';
 
-registeEntityFromJson(RegisteEntity data, Map<String, dynamic> json) {
+loginEntityFromJson(LoginEntity data, Map<String, dynamic> json) {
 	if (json['admin'] != null) {
 		data.admin = json['admin'];
 	}
@@ -42,7 +42,7 @@ registeEntityFromJson(RegisteEntity data, Map<String, dynamic> json) {
 	return data;
 }
 
-Map<String, dynamic> registeEntityToJson(RegisteEntity entity) {
+Map<String, dynamic> loginEntityToJson(LoginEntity entity) {
 	final Map<String, dynamic> data = new Map<String, dynamic>();
 	data['admin'] = entity.admin;
 	if (entity.chapterTops != null) {
