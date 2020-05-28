@@ -1,16 +1,15 @@
-import 'dart:math';
+import 'dart:async';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:oktoast/oktoast.dart';
-import 'package:wanandroid/utils/LogUtils.dart';
+import 'package:wanandroid/ui/LoginPage.dart';
 
 class SplashPage extends StatefulWidget {
   @override
-  State<StatefulWidget> createState() => SplashState();
+  State<StatefulWidget> createState() => _SplashState();
 }
 
-class SplashState extends State<SplashPage> {
+class _SplashState extends State<SplashPage> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -31,11 +30,11 @@ class SplashState extends State<SplashPage> {
             ),
             Expanded(
               child: Text(
-                '1.0.0',
+                'v1.0.0',
                 style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 20,
-                ),
+                    color: Colors.black,
+                    fontSize: 20,
+                    decoration: TextDecoration.none),
               ),
               flex: 0,
             ),
@@ -45,9 +44,25 @@ class SplashState extends State<SplashPage> {
     );
   }
 
+  @override
+  void initState() {
+    super.initState();
+    Timer(Duration(seconds: 2), () {
+      _pushHome();
+    });
+
+//    var timer = Timer.periodic(Duration(seconds: 2), (timer) {
+//      _pushHome();
+//    });
+//    Future.delayed(Duration(seconds: 2), () {
+//      _pushHome();
+//      timer.cancel();
+//    });
+  }
+
   void _pushHome() {
-    LogUtils.e('click');
-    showToast("click${Random().nextInt(100)}");
-//    Navigator.pushAndRemoveUntil(context, newRoute, predicate)
+    Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) {
+      return LoginPage();
+    }), (route) => route == null);
   }
 }
