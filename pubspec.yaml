@@ -76,3 +76,9 @@ flutter:
 
   assets:
     - images/logo.png
+    - images/artical_true.png
+    - images/artical_false.png
+    - images/project_true.png
+    - images/project_false.png
+    - images/mine_true.png
+    - images/mine_false.png
