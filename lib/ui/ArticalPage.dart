@@ -14,6 +14,7 @@ class _ArticalPageState extends State<ArticalPage> {
 
   @override
   void initState() {
+    super.initState();
     NetUtils.instance.getBanner((bannerList) {
       if (mounted)
         setState(() {

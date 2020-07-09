@@ -15,6 +15,7 @@ class _HomePageState extends State<HomePage> {
 
   @override
   void initState() {
+    super.initState();
     _bodys.add(ArticalPage());
     _bodys.add(ProjectPage());
     _bodys.add(MinePage());
