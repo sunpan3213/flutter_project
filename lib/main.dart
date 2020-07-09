@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
     return OKToast(
       child: MaterialApp(
         theme: ThemeData(
-          primaryColor: Colors.black,
+          primaryColor: Colors.blueAccent,
           hintColor: Colors.grey,
           textTheme: TextTheme(
             subhead: TextStyle(color: Colors.black87),

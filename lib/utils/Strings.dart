@@ -9,4 +9,7 @@ class Strings{
   static String registeButtonText = "注册";
   static String registeSuccess = "注册成功";
   static String loginSuccess = "登录成功";
+  static String artical = "文章";
+  static String project = "项目";
+  static String mine = "我的";
 }

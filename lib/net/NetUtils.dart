@@ -2,7 +2,8 @@ import 'dart:io';
 
 import 'package:dio/dio.dart';
 import 'package:wanandroid/generated/json/base/json_convert_content.dart';
-import 'package:wanandroid/model/login_entity_entity.dart';
+import 'package:wanandroid/model/banner_entity.dart';
+import 'package:wanandroid/model/login_entity.dart';
 import 'package:wanandroid/model/registe_entity.dart';
 
 class NetUtils {
@@ -59,5 +60,10 @@ class NetUtils {
   void login(String account, String pwd, Function(LoginEntity) success, Function error) {
     Map<String, dynamic> params = {"username": account, "password": pwd};
     _post('/user/login', params, success, error);
+  }
+
+  void getBanner(Function(List<BannerEntity>) success, Function error){
+    Map<String, dynamic> params = {};
+    _post("/banner/json", params, success, error);
   }
 }
