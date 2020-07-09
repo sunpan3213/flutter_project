@@ -1,4 +1,4 @@
-import 'package:wanandroid/model/login_entity_entity.dart';
+import 'package:wanandroid/model/login_entity.dart';
 
 loginEntityFromJson(LoginEntity data, Map<String, dynamic> json) {
 	if (json['admin'] != null) {

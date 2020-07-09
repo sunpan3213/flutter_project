@@ -63,16 +63,18 @@ class _HomePageState extends State<HomePage> {
         title: Text(Strings.mine),
       ),
     ];
-    return Scaffold(
-      body: _bodys[_currentPos],
-      bottomNavigationBar: BottomNavigationBar(
-        items: bars,
-        currentIndex: _currentPos,
-        onTap: (i) {
-          setState(() {
-            _currentPos = i;
-          });
-        },
+    return SafeArea(
+      child: Scaffold(
+        body: _bodys[_currentPos],
+        bottomNavigationBar: BottomNavigationBar(
+          items: bars,
+          currentIndex: _currentPos,
+          onTap: (i) {
+            setState(() {
+              _currentPos = i;
+            });
+          },
+        ),
       ),
     );
   }
